@@ -1,0 +1,13 @@
+{
+  "name": "graphql-express-ts-bolerplate",
+  "author": "Hyunse Kim",
+  "version": "1.0.0",
+  "description": "Sever Graphql, Express, Typescript",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  }
+}
