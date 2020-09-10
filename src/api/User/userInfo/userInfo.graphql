@@ -1,0 +1,7 @@
+type getUserAllResponse {
+  users: [User]
+}
+
+type Query {
+  GetAllUser: getUserAllResponse!
+}

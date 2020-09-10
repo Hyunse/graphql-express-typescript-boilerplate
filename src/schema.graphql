@@ -1,9 +1,24 @@
 type Query {
   sayBye: String!
-  sayHello: Greeting!
+  sayHello(name: String!): SayHelloResponse!
+  GetAllUser: getUserAllResponse!
 }
 
-type Greeting {
+type SayHelloResponse {
   text: String!
   error: Boolean!
+}
+
+type User {
+  id: Int!
+  email: String!
+  name: String!
+  country: String!
+  password: String!
+  createdAt: String!
+  updatedAt: String
+}
+
+type getUserAllResponse {
+  users: [User]
 }
