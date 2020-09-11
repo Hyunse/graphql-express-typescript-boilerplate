@@ -1,5 +1,5 @@
-import { Resolvers } from 'src/types/resolvers';
-import User from '../../../entities/User'
+import { Resolvers } from '@type/resolvers';
+import User from '@entities/User';
 import { getRepository } from 'typeorm';
 
 const resolvers: Resolvers = {

@@ -19,6 +19,23 @@ type User {
   updatedAt: String
 }
 
+type SignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  SignIn(email: String!, password: String!): SignInResponse!
+  SignUp(email: String!, name: String!, country: String!, password: String!): SignUpResponse!
+}
+
+type SignUpResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
 type getUserAllResponse {
   users: [User]
 }

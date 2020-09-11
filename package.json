@@ -9,6 +9,7 @@
     "@types/bcrypt": "^3.0.0",
     "@types/cors": "^2.8.7",
     "@types/helmet": "^0.0.48",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/morgan": "^1.9.1",
     "@types/node": "^14.6.4",
     "babel-runtime": "^6.26.0",
@@ -16,13 +17,14 @@
     "graphql-to-typescript": "^0.1.2",
     "nodemon": "^2.0.4",
     "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.0.2"
   },
   "scripts": {
     "predev": "yarn run types",
-    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql",
+    "dev": "cd src && nodemon --exec ts-node -r tsconfig-paths/register index.ts -e ts,graphql",
     "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
-    "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
+    "types": "graphql-to-typescript ./src/schema.graphql ./src/type/graph.d.ts"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -32,6 +34,7 @@
     "graphql-tools": "^6.2.1",
     "graphql-yoga": "^1.18.3",
     "helmet": "3.12.1",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.3.3",
     "typeorm": "^0.2.25"
