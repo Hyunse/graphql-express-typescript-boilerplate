@@ -9,31 +9,19 @@ const resolver: Resolvers = {
       const { email, password } = args;
       try {
         const user = await User.findOne({ email });
-
-        if (!user) {
-          return {
-            ok: false,
-            error: 'User Not Found',
-            token: '',
-          };
-        }
+        // Can't find User
+        if (!user) throw new Error('User Not Found');
 
         const checkPassword = await user.comparePassword(password);
+        // Password is incorrect
+        if (!checkPassword) throw new Error('Wrong Password');
 
-        if (checkPassword) {
-          const token = createJWT(user.id);
-          return {
-            ok: true,
-            error: null,
-            token,
-          };
-        } else {
-          return {
-            ok: false,
-            error: 'Wrong Password',
-            token: null,
-          };
-        }
+        const token = createJWT(user.id);
+        return {
+          ok: true,
+          error: null,
+          token,
+        };
       } catch (error) {
         return {
           ok: false,

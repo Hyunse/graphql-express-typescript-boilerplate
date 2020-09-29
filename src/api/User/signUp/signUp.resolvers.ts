@@ -11,11 +11,7 @@ const resolvers: Resolvers = {
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
-          return {
-            ok: false,
-            error: 'Already Exist',
-            token: null,
-          };
+          throw new Error('Email Already Exist');
         } else {
           const newUser = await User.create({ ...args }).save();
           const token = createJWT(newUser.id);

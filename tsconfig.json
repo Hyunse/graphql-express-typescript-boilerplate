@@ -5,7 +5,8 @@
       "@api/*": ["api/*"],
       "@entities/*": ["./entities/*"],
       "@type/*": ["type/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@middlewares/*": ["middlewares/*"]
     },
     "typeRoots": ["./node_modules/@types", "./src/types"],
     "module": "commonjs",
